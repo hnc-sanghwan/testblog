@@ -4,7 +4,7 @@ import './App.css';
 
  function App() {
 
-  let [글제목리스트, 글제목리스트변경] = useState(['첫번째 글', '두번째 글', '세번째 글']);
+  let [글제목리스트, 글제목리스트변경] = useState(['첫번째 글', '두번째 글', '세번째 글', '네번째 글']);
   let [날짜, 날짜변경] = useState(['1월 1일 작성', '1월 2일 작성', '1월 3일 작성']);
   let [좋아요, 좋아요변경] = useState(0);
   let [글제목, 글제목변경] = useState('첫번째 글');   
@@ -49,7 +49,7 @@ import './App.css';
         <hr />
       </div>   
      <div className="list">
-        <h3> { 뭐야  } </h3>
+        <h3> { 글제목리스트[3]  } </h3>
         <p> { 날짜[2] } </p>
         <hr />
       </div>   
