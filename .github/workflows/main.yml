@@ -10,6 +10,8 @@ on:
     - "**/*.yml"
     - "**/*.html"
     - "**/*.js"
+    branches:
+      - main                       
 
 name: Build and Push an Image to ECR
 
