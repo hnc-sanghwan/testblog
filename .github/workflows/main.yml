@@ -11,7 +11,7 @@ on:
     - "**/*.html"
     - "**/*.js"
     branches:
-    - master                     
+    - main                     
 
 name: Build and Push an Image to ECR
 
