@@ -62,10 +62,12 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
         
-      - name: docker build
-        uses: actions/docker/cli@master
-        with:
-          args: build -t hnc-hskim/testblog .
+      - name: Build and tag the image
+        run: |
+          # Build and tag the image
+          docker build \
+            -t $CONTAINER_IMAGE \
+            -t public.ecr.aws/e1s6t4d5/testblog/$CONTAINER_IMAGE .
           
       # Set image tag in kustomization
 
