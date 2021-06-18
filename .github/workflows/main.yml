@@ -45,6 +45,8 @@ jobs:
 
       - name: Build                   # React Build
         run: yarn build
+        env: 
+          CI: ""
           
       # Add steps here like linting, testing, minification, etc.
       - name: Configure AWS credentials 
