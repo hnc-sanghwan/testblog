@@ -1,17 +1,9 @@
 # build.yml
 on:
-  pull_request:
-    paths:
-    - "*/*.yml"
-    - "*/*.html"
-    - "*/*.js"
   push:
-    paths:
-    - "*/*.yml"
-    - "*/*.html"
-    - "*/*.js"
-    branches:         # array of glob patterns matching against refs/heads. Optional; defaults to all
-    - master          # triggers on pushes that contain changes in master
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 name: Build and Push an Image to ECR
 
