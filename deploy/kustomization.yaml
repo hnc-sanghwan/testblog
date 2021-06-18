@@ -5,6 +5,8 @@ resources:
 - testblog-service.yaml
 
 images:
+- name: 258092954359.dkr.ecr.ap-northeast-2.amazonaws.com/testblog
+  newTag: f6ce2d52e1a7d9c8097c36f8eeeb9294e33581e5
 - name: testblog
   newName: testblog
   newTag: new
