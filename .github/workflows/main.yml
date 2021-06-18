@@ -37,18 +37,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
-      - name: npm install
-        uses: actions/npm@master
-        with:
-          args: install
-      - name: npm test
-        uses: actions/npm@master
-        with:
-          args: run test
-      - name: npm lint
-        uses: actions/npm@master
-        with:
-          args: run lint
+      - name: Check Node v            # Node v 확인
+        run: node -v
+
+      - name: Install Dependencies    # 의존 파일 설치
+        run: yarn install --frozen-lockfile
+
+      - name: Build                   # React Build
+        run: yarn build
           
       # Add steps here like linting, testing, minification, etc.
       - name: Configure AWS credentials 
