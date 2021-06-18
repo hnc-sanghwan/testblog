@@ -65,14 +65,14 @@ jobs:
           # Build and tag the image
           docker build \
             -t $CONTAINER_IMAGE \
-            -t 258092954359.dkr.ecr.ap-northeast-2.amazonaws.com/testblog/$CONTAINER_IMAGE .
+            -t 258092954359.dkr.ecr.ap-northeast-2.amazonaws.com/$CONTAINER_IMAGE .
           
       # Set image tag in kustomization
 
       - name: Set image tag
         run: |
            cd deploy
-           kustomize edit set image public.ecr.aws/e1s6t4d5/testblog/$CONTAINER_IMAGE
+           kustomize edit set image 258092954359.dkr.ecr.ap-northeast-2.amazonaws.com/$CONTAINER_IMAGE
            cat kustomization.yaml
       - name: Commit kustomization
         run: |
