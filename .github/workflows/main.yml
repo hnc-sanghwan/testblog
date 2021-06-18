@@ -2,14 +2,16 @@
 on:
   pull_request:
     paths:
-    - app/**
+    - "**/*.yml"
+    - "**/*.html"
   push:
     paths:
-    - app/**
+    - "**/*.yml"
+    - "**/*.html"
     branches:         # array of glob patterns matching against refs/heads. Optional; defaults to all
     - master          # triggers on pushes that contain changes in master
 
-name: Build and Push to ECR
+name: Build and Push an Image to ECR
 
 # https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html
 env:
@@ -30,25 +32,43 @@ jobs:
       uses: actions/checkout@master
 
     # Add steps here like linting, testing, minification, etc.
-      
-    - name: Configure AWS credentials  
-      uses: aws-actions/configure-aws-credentials@v1 
+    - name: Configure AWS credentials 
+      uses: aws-actions/configure-aws-credentials@v1
       with:
         aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ env.AWS_DEFAULT_REGION }}   
-
+        aws-region: ${{ env.AWS_DEFAULT_REGION }}  
+ 
     - name: Setup ECR
       id: login-ecr
-      uses: aws-actions/amazon-ecr-login@v1 
-
+      uses: aws-actions/amazon-ecr-login@v1
+      
     - name: Build and tag the image
       run: |
         # Build and tag the image
         docker build \
           -t $CONTAINER_IMAGE \
-          -t public.ecr.aws/e1s6t4d5/testblog/$CONTAINER_IMAGE ./app
-           
+          -t public.ecr.aws/e1s6t4d5/testblog/$CONTAINER_IMAGE ./public ./src
+ 
+    # Set image tag in kustomization
+
+    - name: Set image tag
+      run: |
+          cd deploy
+          kustomize edit set image public.ecr.aws/e1s6t4d5/testblog/$CONTAINER_IMAGE
+          cat kustomization.yaml
+    - name: Commit kustomization
+      run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -a -m "$CONTAINER_IMAGE"
+    - name: Push changes to master
+      uses: ad-m/github-push-action@master
+      with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
+          force: true       
+    
     # Add additional steps here like scanning of image
 
     # Only push to registry on master
