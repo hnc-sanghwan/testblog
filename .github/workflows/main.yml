@@ -11,7 +11,7 @@ on:
     - "**/*.html"
     - "**/*.js"
     branches:
-    - master                     
+    - main                     
 
 name: Build and Push an Image to ECR
 
@@ -90,7 +90,7 @@ jobs:
 
     # Only push to registry on master
       - name: Push
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         run: |
           # Push image to AWS ECR
           docker push 258092954359.dkr.ecr.ap-northeast-2.amazonaws.com/testblog/$CONTAINER_IMAGE
