@@ -55,7 +55,7 @@ import './App.css';
 
 function ChangeGoodCound(좋아요)
 {
-  return 좋아요 + 1;
+  return 좋아요 + 2;
 }
 
 export default App;
