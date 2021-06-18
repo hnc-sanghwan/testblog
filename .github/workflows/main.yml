@@ -1,9 +1,15 @@
 # build.yml
 on:
-  push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
+    paths:
+    - "**/*.yml"
+    - "**/*.html"
+    - "**/*.js"
+  push:
+    paths:
+    - "**/*.yml"
+    - "**/*.html"
+    - "**/*.js"
 
 name: Build and Push an Image to ECR
 
