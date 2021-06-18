@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: testblog
-        image: public.ecr.aws/e1s6t4d5/testblog:10492dc9c8f502d16b7ef41920f31036c6b90b38
+        image: 258092954359.dkr.ecr.ap-northeast-2.amazonaws.com/testblog:51cdc2b8b987e67333bd2a5be1e487a2e52ad442
         # update image value with the image URI of the container registry  
         resources:
           requests:
