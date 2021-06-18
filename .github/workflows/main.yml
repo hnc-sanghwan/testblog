@@ -90,7 +90,7 @@ jobs:
 
     # Only push to registry on master
       - name: Push
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         run: |
           # Push image to AWS ECR
           docker push 258092954359.dkr.ecr.ap-northeast-2.amazonaws.com/$CONTAINER_IMAGE
