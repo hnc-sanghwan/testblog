@@ -65,7 +65,7 @@ jobs:
           # Build and tag the image
           docker build \
             -t $CONTAINER_IMAGE \
-            -t public.ecr.aws/e1s6t4d5/testblog/$CONTAINER_IMAGE .
+            -t 258092954359.dkr.ecr.ap-northeast-2.amazonaws.com/testblog/$CONTAINER_IMAGE .
           
       # Set image tag in kustomization
 
@@ -93,4 +93,4 @@ jobs:
         if: github.ref == 'refs/heads/master'
         run: |
           # Push image to AWS ECR
-          docker push public.ecr.aws/e1s6t4d5/testblog/$CONTAINER_IMAGE
+          docker push 258092954359.dkr.ecr.ap-northeast-2.amazonaws.com/testblog/$CONTAINER_IMAGE
