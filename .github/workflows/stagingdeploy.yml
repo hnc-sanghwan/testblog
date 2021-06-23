@@ -15,12 +15,11 @@ jobs:
       - name: Check Node v            # Node v 확인
         run: node -v
 
-      - name: Install Dependencies    # 의존 파일 설치
-        run: yarn install --frozen-lockfile
-        
-      #- name: Unit Tests
-      #  run: |
-      #    yarn test
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build
+        run: yarn build
       
       - name: Deploy to S3
         env:
@@ -32,7 +31,7 @@ jobs:
         uses: reggionick/s3-deploy@v3
         with:
             folder: build
-            bucket: ${{ secrets.AWS_S3_BUCKET }}
+            bucket: $AWS_S3_BUCKET
             bucket-region: $AWS_DEFAULT_REGION
             dist-id: $AWS_S3_BUCKET
             invalidation: /
