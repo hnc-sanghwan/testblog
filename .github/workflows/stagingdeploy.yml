@@ -8,27 +8,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [8.x, 10.x, 12.x]
-
     steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: Yarn Install
-        run: |
-          yarn install
-      - name: Production Build
-        run: |
-          yarn build
+      - name: Checkout
+        uses: actions/checkout@s3deploy
+
+      - name: Check Node v            # Node v 확인
+        run: node -v
+
+      - name: Install Dependencies    # 의존 파일 설치
+        run: yarn install --frozen-lockfile
+        
       - name: Unit Tests
         run: |
           yarn test
       - name: Deploy to S3
-        uses: jakejarvis/s3-sync-action@master
+        uses: jakejarvis/s3-sync-action@s3deploy
         with:
           args: --acl public-read --delete
         env:
