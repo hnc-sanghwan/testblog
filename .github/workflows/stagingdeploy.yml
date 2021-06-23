@@ -30,4 +30,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ap-northeast-2
           SOURCE_DIR: "build"
-        run: aws s3 sync ./public/ $AWS_S3_BUCKET --delete
+        run: aws s3 sync . $AWS_S3_BUCKET --delete
