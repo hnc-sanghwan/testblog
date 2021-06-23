@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@s3deploy
+        uses: actions/checkout@master
 
       - name: Check Node v            # Node v 확인
         run: node -v
