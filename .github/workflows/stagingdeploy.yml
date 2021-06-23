@@ -30,13 +30,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ap-northeast-2
           SOURCE_DIR: "build"
-        uses: reggionick/s3-deploy@v3
-        with:
-            folder: build
-            bucket: $AWS_S3_BUCKET
-            bucket-region: $AWS_DEFAULT_REGION
-            dist-id: $AWS_S3_BUCKET
-            invalidation: /
-            delete-removed: true
-            no-cache: true
-            private: true
+        run: aws s3 sync ./public/ $AWS_S3_BUCKET --delete
