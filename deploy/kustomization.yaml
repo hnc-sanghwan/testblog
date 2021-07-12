@@ -6,7 +6,7 @@ resources:
 
 images:
 - name: 258092954359.dkr.ecr.ap-northeast-2.amazonaws.com/testblog
-  newTag: 5d4c2413e133a9343f6a1086dfca3e18b8f3f6fa
+  newTag: 3cd32638bb79940ab14490f4e4d202c1ede50048
 - name: testblog
   newName: testblog
   newTag: new
