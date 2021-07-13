@@ -29,7 +29,7 @@ import './App.css';
   return (
     <div className="App">
       <div className="black-nav">
-        <div >나의 블로그()</div>
+        <div >나의 블로그(111)</div>
       </div>
       <div className="list">
         {/* <h3> { 글제목[0]  } <span onClick={ () => 좋아요변경(좋아요 + 1)} >좋아요</span> {좋아요} </h3> */}
