@@ -1,31 +1,13 @@
 pipeline {
   // "Top-level" agent is assigned to docker slaves via Jenkins pipeline configuration
   agent none
+  
+  
+   stage('Clone repository') {
+       checkout scm #repository를 jenkins workspace로 clone
+   }
 
-  stages {
-    stage('Docker node test') {
-      agent {
-        docker {
-          image 'node:7-alpine'
-          args '--name docker-node' // list any args
-        }
-      }
-      steps {
-        // Steps run in node:7-alpine docker container on docker slave
-        sh 'node --version'
-      }
-    }
-
-    stage('Docker maven test') {
-      agent {
-        docker {
-          image 'maven:3-alpine'
-        }
-      }
-      steps {
-        // Steps run in maven:3-alpine docker container on docker slave
-        sh 'mvn --version'
-      }
-    }
-  }
+   stage('Build image') {
+       app = docker.build("teichae/jenkins:$BUILD_NUMBER") #docker image build 및 이름을 teicahe/jenkins:빌드번호 설정
+   } 
 }
