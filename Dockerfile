@@ -1,6 +1,6 @@
 FROM node:12.18-alpine
 ENV NODE_ENV=production
-WORKDIR /app
+WORKDIR /usr/src/app
 COPY . .
 RUN npm install --production --silent && mv node_modules ../
 RUN npm install react-scripts@2.1.3 -g --slient
