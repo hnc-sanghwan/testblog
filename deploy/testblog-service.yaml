@@ -1,15 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: blog-frontend
+  name: hello-java-spring-boot-frontend
   labels:
     app: testblog
-    tier: frontend
-	@@ -14,7 +14,7 @@ spec:
+    tier: frontend 
   ports:
   - port: 80
     protocol: TCP
-    targetPort: 3000
+    targetPort: 8080
   selector:
-    app: testblog
+    app: hello-java-spring-boot
     tier: frontend
