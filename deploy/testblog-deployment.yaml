@@ -2,24 +2,24 @@
 apiVersion: apps/v1 #  for k8s versions before 1.9.0 use apps/v1beta2  and before 1.8.0 use extensions/v1beta1
 kind: Deployment
 metadata:
-  name: testblog
+  name: blog-frontend
   annotations:
     
 spec:
   selector:
     matchLabels:
-      app: testblog
+      app: blog-frontend
       tier: frontend
   replicas: 1
   template:
     metadata:
       labels:
-        app: testblog
+        app:blog-frontend
         tier: frontend
     spec:
       containers:
-      - name: testblog
-        image: 258092954359.dkr.ecr.ap-northeast-2.amazonaws.com/testblog:51cdc2b8b987e67333bd2a5be1e487a2e52ad442
+      - name: blog-frontend
+        image: docker.io/spcsenti/testblog:latest
         # update image value with the image URI of the container registry  
         resources:
           requests:
