@@ -8,13 +8,13 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: testblog
+      app: blog-frontend
       tier: frontend
   replicas: 1
   template:
     metadata:
       labels:
-        app: testblog
+        app:blog-frontend
         tier: frontend
     spec:
       containers:
