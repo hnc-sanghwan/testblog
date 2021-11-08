@@ -18,7 +18,7 @@ spec:
         tier: frontend
     spec:
       containers:
-      - name: testblog
+      - name: blog-frontend
         image: docker.io/spcsenti/testblog:latest
         # update image value with the image URI of the container registry  
         resources:
