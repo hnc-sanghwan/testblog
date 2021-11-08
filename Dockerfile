@@ -1,7 +1,7 @@
 FROM node:12.18-alpine
 ENV NODE_ENV=production
-WORKDIR /usr/src/app
-COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
+WORKDIR /app
+COPY . .
 RUN npm install --production --silent && mv node_modules ../
 RUN npm install react-scripts@2.1.3 -g --slient
 COPY . .
