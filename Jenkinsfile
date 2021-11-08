@@ -35,10 +35,8 @@ pipeline {
         steps {
             // This uploads your application's source code and performs a binary build in OpenShift
             // This is a step defined in the shared library (see the top for the URL)
-            // (Or you could invoke this step using 'oc' commands!)
-#            binaryBuild(buildConfigName: appName, buildFromPath: ".")
-          
-            binaryBuild(projectName: env.BUILD, buildConfigName: env.APP_NAME, buildFromPath: "/tmp/workspace/testblog")
+            // (Or you could invoke this step using 'oc' commands!)           
+            binaryBuild(buildConfigName: appName, buildFromPath: "/tmp/workspace/testblog")
         }
     }
   }
