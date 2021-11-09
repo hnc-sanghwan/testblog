@@ -4,7 +4,7 @@ metadata:
   labels:
     app: blog-frontend
   name: blog-frontend
-  namespace: blackwahle-devops
+  namespace: blackwhale-devops
 spec:
   port:
     targetPort: 8080
