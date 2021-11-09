@@ -14,11 +14,11 @@ spec:
   template:
     metadata:
       labels:
-        app:blog-frontend
+        app: blog-frontend
         tier: frontend
     spec:
       containers:
       - name: blog-frontend
-        image: docker.io/spcsenti/testblog:latest              
+        image: docker.io/spcsenti/testblog:latest       
         ports:
         - containerPort: 3000
