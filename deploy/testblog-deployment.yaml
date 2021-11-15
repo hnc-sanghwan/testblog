@@ -19,6 +19,6 @@ spec:
     spec:
       containers:
       - name: blog-frontend
-        image: docker.io/spcsenti/testblog:latest       
+        image: docker.io/spcsenti/testblog:1.0       
         ports:
         - containerPort: 3000
